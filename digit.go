@@ -12,18 +12,26 @@ func digit(n int) []int {
 	for ; n > 0; n = n / 10 {
 		i = n % 10
 		digitList = append(digitList, i)
-		fmt.Println(i, n, digitList)
 	}
 	return digitList
 }
 
+func digPow(n, p int) int {
+	x := digit(n)
+	fmt.Println(x)
+	return 1
+}
+
 func main() {
-	if len(os.Args) > 1 {
-		s := os.Args[1]
-		if i, err := strconv.Atoi(s); err == nil {
-			fmt.Printf("i=%d, type: %T\n", i, i)
-			x := digit(i)
-			fmt.Println(x)
+	if len(os.Args) > 2 {
+		s1 := os.Args[1]
+		s2 := os.Args[2]
+		n, err1 := strconv.Atoi(s1)
+		p, err2 := strconv.Atoi(s2)
+		if err1 == nil && err2 == nil {
+			fmt.Printf("n=%d, type: %T n=%d, type: %T\n", n, n, p, p)
+			result := digPow(n, p)
+			fmt.Printf("Result = %d\n", result)
 		}
 	}
 }
